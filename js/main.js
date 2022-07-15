@@ -61,31 +61,63 @@
 //}
 
 
-function igresarNombre() {
-    let nombreingresado = prompt("igresa nombre");
-    console.log("su nombre ingresado es: " + nombreingresado);
+// function igresarNombre() {
+//     let nombreingresado = prompt("igresa nombre");
+//     console.log("su nombre ingresado es: " + nombreingresado);
+// }
+// igresarNombre();
+// igresarNombre();
+// igresarNombre();
+
+// function agregarAlCarrito(producto, stock) {
+//     console.log("agregaste al carrito " + producto);
+// }
+
+
+// agregarAlCarrito("celular samsung A03, 10");
+// agregarAlCarrito("celular samsung A50, 5");
+// agregarAlCarrito("celular samsung A12, 15");
+
+
+// function stock(stock) {
+//     if (stock > 0) {
+//         return 'tenemos stock'
+//     } else {
+//         return 'no tenemos stock'
+
+//     }
+
+
+// }
+// const array = ['alto', 1, 'flaco']
+// array.push('otro elemento')
+
+// console.log(array.length)
+// console.log(array)
+// const nombres = ['katy', 'piero', 'ambar', 'yain', 'andrea', 'leo', ]
+// nombres.splice(0, 1)
+// console.log(nombres)
+// console.log(nombres.indexOf('yain'))
+// console.log(nombres.includes('piero'))
+// console.log(nombres.includes('katy'))
+
+const carrito = []
+
+function agregarAlCarrito(producto) {
+    carrito.push(producto)
+    console.log(carrito)
 }
-igresarNombre();
-igresarNombre();
-igresarNombre();
 
-function agregarAlCarrito(producto, stock) {
-    console.log("agregaste al carrito " + producto);
+agregarAlCarrito({ id: 123, nombre: 'samsunga03', precio: 5000 })
+agregarAlCarrito({ id: 124, nombre: 'samsunga05', precio: 7000 })
+agregarAlCarrito({ id: 125, nombre: 'samsunga08', precio: 8000 })
+agregarAlCarrito({ id: 126, nombre: 'samsunga09', precio: 9000 })
+agregarAlCarrito({ id: 127, nombre: 'samsunga13', precio: 10000 })
+
+function borrar(iddelproducto, precio) {
+    const indexOf = carrito.findIndex(producto => producto.id === iddelproducto);
+    carrito.splice(indexOf, 1);
+    console.log(carrito)
 }
-
-
-agregarAlCarrito("celular samsung A03, 10");
-agregarAlCarrito("celular samsung A50, 5");
-agregarAlCarrito("celular samsung A12, 15");
-
-
-function stock(stock) {
-    if (stock > 0) {
-        return 'tenemos stock'
-    } else {
-        return 'no tenemos stock'
-
-    }
-
-
-}
+borrar(125)
+borrar(9000)
