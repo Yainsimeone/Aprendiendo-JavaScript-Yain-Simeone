@@ -123,8 +123,6 @@ function borrar(iddelproducto, precio) {
 borrar(125)
 borrar(9000)
 
-const numeros = [1, 2, 3, 4, 5, 6]
-
 numeros.forEach((numeros) => {
     console.log(numeros * 2)
 })
