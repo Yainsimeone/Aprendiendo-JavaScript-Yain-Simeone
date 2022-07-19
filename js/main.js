@@ -101,6 +101,7 @@
 // console.log(nombres.includes('piero'))
 // console.log(nombres.includes('katy'))
 
+console.log(new Date())
 const carrito = []
 
 function agregarAlCarrito(producto) {
@@ -121,3 +122,28 @@ function borrar(iddelproducto, precio) {
 }
 borrar(125)
 borrar(9000)
+
+const numeros = [1, 2, 3, 4, 5, 6]
+
+numeros.forEach((numeros) => {
+    console.log(numeros * 2)
+})
+
+const result = carrito.find((el) => el.precio === 7000)
+console.log(result)
+
+const actualizando = carrito.map((el) => {
+    return { nombre: el.nombre, precio: el.precio * 1.5 }
+})
+console.log(actualizando)
+
+
+// const sucompra = [{ nombre: 'samsungA13', precio: 4000 },
+//     { nombre: 'samsungA20', precio: 3500 }, { nombre: 'samsungA30', precio: 5500 }
+// ]
+
+const total = carrito.reduce((acc, el) => acc + el.precio, 0)
+
+console.log(total)
+
+// console.log((Math.round(1) * 20) + 50) //porque me dice en la consola siempre me tira 70?
