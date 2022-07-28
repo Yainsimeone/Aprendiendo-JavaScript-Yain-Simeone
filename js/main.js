@@ -101,47 +101,117 @@
 // console.log(nombres.includes('piero'))
 // console.log(nombres.includes('katy'))
 
-console.log(new Date())
-const carrito = []
-
-function agregarAlCarrito(producto) {
-    carrito.push(producto)
-    console.log(carrito)
-}
-
-agregarAlCarrito({ id: 123, nombre: 'samsunga03', precio: 5000 })
-agregarAlCarrito({ id: 124, nombre: 'samsunga05', precio: 7000 })
-agregarAlCarrito({ id: 125, nombre: 'samsunga08', precio: 8000 })
-agregarAlCarrito({ id: 126, nombre: 'samsunga09', precio: 9000 })
-agregarAlCarrito({ id: 127, nombre: 'samsunga13', precio: 10000 })
-
-function borrar(iddelproducto, precio) {
-    const indexOf = carrito.findIndex(producto => producto.id === iddelproducto);
-    carrito.splice(indexOf, 1);
-    console.log(carrito)
-}
-borrar(125)
-borrar(9000)
-
-numeros.forEach((numeros) => {
-    console.log(numeros * 2)
-})
-
-const result = carrito.find((el) => el.precio === 7000)
-console.log(result)
-
-const actualizando = carrito.map((el) => {
-    return { nombre: el.nombre, precio: el.precio * 1.5 }
-})
-console.log(actualizando)
+// console.log(new Date())
+// const carrito = []
 
 
-// const sucompra = [{ nombre: 'samsungA13', precio: 4000 },
-//     { nombre: 'samsungA20', precio: 3500 }, { nombre: 'samsungA30', precio: 5500 }
-// ]
+// function agregarAlCarrito(producto) {
+//     carrito.push(producto)
+//     console.log(carrito)
+// }
 
-const total = carrito.reduce((acc, el) => acc + el.precio, 0)
+// agregarAlCarrito({ id: 123, nombre: 'samsunga03', precio: 5000 })
+// agregarAlCarrito({ id: 124, nombre: 'samsunga05', precio: 7000 })
+// agregarAlCarrito({ id: 125, nombre: 'samsunga08', precio: 8000 })
+// agregarAlCarrito({ id: 126, nombre: 'samsunga09', precio: 9000 })
+// agregarAlCarrito({ id: 127, nombre: 'samsunga13', precio: 10000 })
 
-console.log(total)
+// function borrar(iddelproducto, precio) {
+//     const indexOf = carrito.findIndex(producto => producto.id === iddelproducto);
+//     carrito.splice(indexOf, 1);
+//     console.log(carrito)
+// }
+// borrar(125)
+// borrar(9000)
+
+// numeros.forEach((numeros) => {
+//     console.log(numeros * 2)
+// })
+
+// const result = carrito.find((el) => el.precio === 7000)
+// console.log(result)
+
+// const actualizando = carrito.map((el) => {
+//     return { nombre: el.nombre, precio: el.precio * 1.5 }
+// })
+// console.log(actualizando)
+
+
+// const total = carrito.reduce((acc, el) => acc + el.precio, 0)
+
+// console.log(total)
 
 // console.log((Math.round(1) * 20) + 50) //porque me dice en la consola siempre me tira 70?
+
+const carrito = []
+
+const producto = [{
+        id: 123,
+        nombre: 'samsung A03',
+        img: 'https://www.clarin.com/img/2022/03/17/samsung-galaxy-a53-5g-y___DidRw147G_340x340__1.jpg',
+        precio: 5000
+    },
+    {
+        id: 124,
+        nombre: 'samsung A05',
+        img: 'https://www.clarin.com/img/2022/03/17/samsung-galaxy-a53-5g-y___DidRw147G_340x340__1.jpg',
+        precio: 7000
+    },
+    {
+        id: 125,
+        nombre: 'samsung A08',
+        img: 'https://www.clarin.com/img/2022/03/17/samsung-galaxy-a53-5g-y___DidRw147G_340x340__1.jpg',
+        precio: 8000
+    },
+    {
+        id: 126,
+        nombre: 'samsung A09',
+        img: 'https://www.clarin.com/img/2022/03/17/samsung-galaxy-a53-5g-y___DidRw147G_340x340__1.jpg',
+        precio: 9000
+    },
+    {
+        id: 127,
+        nombre: 'samsung A13',
+        img: 'https://www.clarin.com/img/2022/03/17/samsung-galaxy-a53-5g-y___DidRw147G_340x340__1.jpg',
+        precio: 10000
+    },
+]
+let card = "";
+
+producto.forEach((producto) => {
+    const idButton = `add-card${producto.id}`;
+    card += `
+    <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src=${producto.img}>
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">${producto.nombre}</h5>
+                                <!-- Product price-->
+                                ${producto.precio}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a id="${idButton}"class="btn btn-outline-dark mt-auto">Agregar al carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    `
+
+});
+document.getElementById("cards-nuevas").innerHTML = card
+
+producto.forEach((producto) => {
+    const idButton = `add-card${producto.id}`;
+    document.getElementById(idButton).addEventListener('click', (event) => {
+        carrito.push(producto);
+        console.log(carrito)
+        alert("Agregaste al carrito" + " " + producto.nombre)
+    })
+})
