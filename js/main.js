@@ -1,6 +1,5 @@
-const carrito = JSON.parse(localStorage.getItem('carrito')) // si ago ?? [] me tira error poruqe?
-const totalCarrito = carrito.reduce((acumulador, carrito) => acumulador + producto.precio, 0);
-document.getElementById("total-carrito").innerHTML = `${carrito.length} - $ ${totalCarrito}`;
+const carrito = JSON.parse(localStorage.getItem('carrito')) || []; // si ago ?? [] me tira error porque?
+
 
 
 const producto = [{
@@ -68,11 +67,15 @@ document.getElementById("cards-nuevas").innerHTML = card
 
 producto.forEach((producto) => {
     const idButton = `add-card${producto.id}`;
-    document.getElementById(idButton).addEventListener('click', () => {
+    document.getElementById(idButton).addEventListener('click', (even) => {
         carrito.push(producto);
         localStorage.setItem("carrito", JSON.stringify(carrito));
-        document.getElementById("total-carrito").innerHTML = `${carrito.length} - $ ${total}`
-        const total = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+        const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+        document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
         alert("Agregaste al carrito" + " " + producto.nombre)
+        console.log(totalCarrito);
     })
 })
+const totalCarrito = carrito.reduce((acumulador, carrito) => acumulador + producto.precio, 0);
+document.getElementById("total-carrito").innerHTML = `${carrito.length} - $ ${totalCarrito}`;
+console.log(totalCarrito)
