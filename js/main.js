@@ -1,5 +1,5 @@
+//*carrito!
 const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
 
 //*producto!!!
 const producto = [{
@@ -189,6 +189,7 @@ const producto = [{
 ]
 
 //*agregando cards!!!
+
 let card = "";
 
 producto.forEach((producto) => {
@@ -230,9 +231,9 @@ producto.forEach((producto) => {
         console.log(totalCarrito);
     })
 })
+
 const totalCarrito = carrito.reduce((acumulador, _Carrito) => acumulador + producto.precio, 0);
 document.getElementById('total-carrito').innerHTML = `${carrito.length} - $${totalCarrito}`;
-
 
 //*filtar categorias!!!
 
@@ -243,12 +244,11 @@ for (const nodoHTML of document.getElementsByClassName('filtrar-categoria')) {
     }
 }
 
-
 function filtrarProductosPorCatergoria(categoria) {
-    document.getElementById("cards-nuevas").innerHTML = "";
+    document.getElementById("cards-nuevas").innerHTML = card;
     const productoFiltrados = producto.filter((producto) => producto.categoria === categoria);
     productoFiltrados.forEach((producto) => {
-        const idButton = `add-card${producto.precio}`;
+        const idButton = `add-card${producto.id}`;
         document.getElementById("cards-nuevas").innerHTML += `
         <div class="col mb-5">
                         <div class="card h-100">
@@ -273,5 +273,75 @@ function filtrarProductosPorCatergoria(categoria) {
                     </div>
         `
     });
-    console.log(productoFiltrados)
+
+    //*agregando producto filtrado al carrito!
+
+    productoFiltrados.forEach((producto) => {
+        const idButton = `add-card${producto.id}`;
+        document.getElementById(idButton).addEventListener('click', () => {
+            carrito.push(producto);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+            document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
+            alert("Agregaste al carrito" + " " + producto.nombre)
+            console.log(totalCarrito);
+        })
+    })
 }
+
+
+
+// carrito.forEach((producto) => {
+//     const idButton = `add-button-carrito${producto.id}`;
+//     document.getElementById("button-carrito").innerHTML += `
+//     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+//   <div class="modal-dialog">
+//     <div class="modal-content">
+//       <div class="modal-header">
+//         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+//         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//       </div>
+//       <div class="modal-body">
+//         ...
+//       </div>
+//       <div class="modal-footer">
+//         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+//         <button type="button" class="btn btn-primary">Understood</button>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//     `
+
+// });
+carrito.forEach((carrito) => {
+    // const idButton = `add-card${producto.id}`;
+    document.getElementById("button-carrito").addEventListener('click', () => {
+        document.getElementById("button-carrito").innerHTML += `
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+    `
+        console.log(document.getElementById("button-carrito"))
+            // carrito.push(producto);
+            // localStorage.setItem("carrito", JSON.stringify(carrito));
+            // const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+            // document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
+            // alert("Agregaste al carrito" + " " + producto.nombre)
+            // console.log(totalCarrito);
+    })
+})
