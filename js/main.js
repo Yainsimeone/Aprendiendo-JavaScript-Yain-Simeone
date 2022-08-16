@@ -227,7 +227,13 @@ producto.forEach((producto) => {
         localStorage.setItem("carrito", JSON.stringify(carrito));
         const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
         document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
-        alert("Agregaste al carrito" + " " + producto.nombre)
+        swal({
+            title: `Agregaste al carrito 
+            ${producto.nombre}`,
+            text: "Click en el boton para seguir comprando!",
+            icon: "success",
+            button: "yes!",
+        });
         console.log(totalCarrito);
     })
 })
@@ -283,65 +289,81 @@ function filtrarProductosPorCatergoria(categoria) {
             localStorage.setItem("carrito", JSON.stringify(carrito));
             const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
             document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
-            alert("Agregaste al carrito" + " " + producto.nombre)
+                // 
+            swal({
+                title: `Agregaste al carrito 
+                    ${producto.nombre}`,
+                text: "Click en el boton para seguir comprando!",
+                icon: "success",
+                button: "yes!",
+            });
+
             console.log(totalCarrito);
         })
     })
 }
 
+//*agregando popup */
+carrito.forEach((producto) => {
+    document.getElementById("button-carrito").innerHTML += ""
+    const idButton = `add-card${producto.id}`;
+    document.getElementById("button-carrito").innerHTML +=
+        `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title" id="exampleModalLabel">${producto.nombre}</h5>
+       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+       ${producto.img}
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Save changes</button>
+     </div>
+   </div>
+ </div>
+</div>`
+        //     `<div class="card-body">
+        //     <h5 class="card-title">${producto.nombre}</h5>
+        //     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        //     <p class="card-text"><small class="text-muted">${producto.precio}</small></p>
+        //   </div>
+        //   <img src=${producto.img} class="card-img-bottom" alt="...">
+        // </div>
+        //     `
+
+});
 
 
-// carrito.forEach((producto) => {
-//     const idButton = `add-button-carrito${producto.id}`;
-//     document.getElementById("button-carrito").innerHTML += `
-//     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-//   <div class="modal-dialog">
-//     <div class="modal-content">
-//       <div class="modal-header">
-//         <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-//         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//       </div>
-//       <div class="modal-body">
-//         ...
-//       </div>
-//       <div class="modal-footer">
-//         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-//         <button type="button" class="btn btn-primary">Understood</button>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-//     `
+// carrito.forEach((carrito) => {
+//     const idButton = document.getElementById("button-carrito")
+//     idButton.addEventListener('click', () => {
+//         idButton.innerHTML +=
+//             ` <div class="modal-dialog">
+//               <div class="modal-content">
+//                 <div class="modal-header">
+//                   <h5 class="modal-title">${producto.precio}</h5>
+//                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//                 </div>
+//                 <div class="modal-body">
+//                   <p>Modal body text goes here.</p>
+//                 </div>
+//                 <div class="modal-footer">
+//                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+//                   <button type="button" class="btn btn-primary">Save changes</button>
+//                 </div>
+//               </div>
+//             </div>
+//      `
 
-// });
-carrito.forEach((carrito) => {
-    // const idButton = `add-card${producto.id}`;
-    document.getElementById("button-carrito").addEventListener('click', () => {
-        document.getElementById("button-carrito").innerHTML += `
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
-    </div>
-  </div>
-</div>
-    `
-        console.log(document.getElementById("button-carrito"))
-            // carrito.push(producto);
-            // localStorage.setItem("carrito", JSON.stringify(carrito));
-            // const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
-            // document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
-            // alert("Agregaste al carrito" + " " + producto.nombre)
-            // console.log(totalCarrito);
-    })
-})
+//         console.log(idButton)
+// carrito.push(producto);
+// localStorage.setItem("carrito", JSON.stringify(carrito));
+// const totalCarrito = carrito.reduce((acumulador, producto) => acumulador + producto.precio, 0);
+// document.getElementById("total-carrito").innerHTML = `${carrito.length} - $${totalCarrito} `
+// alert("Agregaste al carrito" + " " + producto.nombre)
+// console.log(totalCarrito);
+//     })
+// })
