@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>The Beauty Company - Carrito de compras</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../../css/styles.css" rel="stylesheet" />
+    <!-- CSS only -->
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <nav id="navbar-mia" class="navbar navbar-expand-lg navbar-light">
+        <div class="container px-4 px-lg-5">
+            <a id="logo" class="navbar-brand fw-bold" href="../index.html">Copyright &copy; Your Website 2022 Store</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                </ul>
+
+                <!-- Tabla de productos en carrito -->
+
+                <form class="d-flex">
+                    <a class="btn btn-outline-dark fw-bold" href="" type="button">
+                        <i class="bi-cart-fill me-1"></i> Carrito
+                        <span class="badge bg-dark text-white ms-1 rounded-pill" id="total-carrito">0</span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-5 pb-5">
+        <div class="container">
+            <div class="row w-100">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h3 class="display-5 mb-2 text-center">Tus Productos</h3>
+                    <p class="mb-5 text-center">
+                        Actualmente tenes los siguientes productos en el carrito
+                    </p>
+                    <table id="shoppingCart" class="table table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th style="width:60%">Producto</th>
+                                <th style="width:12%">Precio</th>
+                                <th style="width:10%">Cantidad</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="items-carrito">
+                        </tbody>
+                    </table>
+
+                    <div class="float-end text-end">
+                        <h4>Subtotal: <span id="subtotal-carrito">0</span> </h4>
+                        <h6> Valor USD actual: <span id="dolar-blue">0</span> </h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 d-flex align-items-center">
+                <div class="col-sm-6 order-md-2 text-end">
+                    <a href="#" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Finalizar compra</a>
+                </div>
+
+                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                    <a href="../index.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5"><i
+                            class="bi bi-arrow-left"></i> Seguir comprando!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark ">
+        <div class="container ">
+            <p class="m-0 text-center text-white ">Copyright &copy; Your Website 2022</p>
+        </div>
+    </footer>>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/card.js"></script>
+    <script src="../js/pagecarrito.js"></script>
+    <script src="../js/stock.js"></script>
+
+
+</body>
+
+</html>
