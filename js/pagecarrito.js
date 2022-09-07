@@ -13,7 +13,7 @@ function itemsGeneradas(itemsAMostrar) {
                         <img src="${producto.imagen}" alt=""
                             class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                     </div>
-                    <div class="col-md-9 text-left mt-sm-2">
+                    <div class="col-md-9 text-left mt-sm-2 nom">
                         <h4>${producto.nombre}</h4>
                     </div>
                 </div>
@@ -39,9 +39,7 @@ function itemsGeneradas(itemsAMostrar) {
 
                 </div>
             </td>
-        </tr>
-
-        <!-- Fin descripción producto -->`;
+        </tr>`;
     });
     agregarItemsEnHTML(acumuladorItems);
 }

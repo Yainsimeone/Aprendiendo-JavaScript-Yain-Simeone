@@ -26,28 +26,20 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products category</a>
+                        <a class="nav-link" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products category</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" id="products">Products</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item filtrar-categoria" data-categoria="Samsung">Samsung</a></li>
-                            <li><a class="dropdown-item filtrar-categoria" data-categoria="Iphone">Iphone</a></li>
-                            <li><a class="dropdown-item filtrar-categoria" data-categoria="Acatel">Acatel</a></li>
-                            <li> <a class="dropdown-item filtrar-categoria" data-categoria="Motorola">Motorola</a>
-                            </li>
-                            <li><a class="dropdown-item filtrar-categoria" data-categoria="Huawei">Huawei</a></li>
-                            <li><a class="dropdown-item filtrar-categoria" data-categoria="Nokia">Nokia</a></li>
-                            <li><a class="dropdown-item filtrar-categoria" data-categoria="Xiaomi">Xiaomi</a></li>
+
                         </ul>
                     </li>
                 </ul>
                 <!-- Buscador-->
-                <input type="text" id="producto-buscado">
-                <button class="me-5 bg-dark" id="boton-buscar" onclick="buscarProducto()">
-                    <i id="lupa" class="bi bi-search"></i>
-                </button>
+                <div>
+                    <input type="text" id="producto-buscado" class="in">
+                    <a class="me-5" id="boton-buscar" onclick="buscarProducto()">
+                        <i id="lupa" class="bi bi-search"></i>
+                    </a>
+                </div>
                 <!-- Carrito-->
                 <form class="d-flex">
                     <a class="btn btn-outline-dark fw-bold" href="./page/carrito.html" type="button">

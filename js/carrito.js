@@ -96,12 +96,3 @@ function quitarCarrito(idProducto) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarItemsCarrito(carrito);
 }
-
-function detalleProducto(idProducto) {
-    let detalleTitulo = ``;
-    let detalleDescripcion = ``;
-    const productoEnInventario = productos.find(
-        (producto) => producto.id == idProducto
-    );
-
-};
